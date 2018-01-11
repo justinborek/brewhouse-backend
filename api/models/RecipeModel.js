@@ -9,6 +9,9 @@ const RecipeSchema = new mongoose.Schema({
   timers: {
     type: Object,
     required: true
+  },
+  color: {
+    type: Number
   }
 });
 
