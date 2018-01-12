@@ -16,7 +16,12 @@ const createRecipe = (req, res) => {
 };
 
 const getRecipes = (req, res) => {
-
+  Recipe.find({})
+  .exec()
+  .then((recipes) => {
+    res.json(recipes);
+  })
+  .catch(err => res.status(422).json(`Cannot get recipes ${err}`));
 };
 
 module.exports = {
