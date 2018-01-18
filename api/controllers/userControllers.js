@@ -28,13 +28,12 @@ const createUser = (req, res) => {
 const getUser = (req, res) => {
   const { username } = req.params;
   User.findOne({  username })
-    .select('username')
     .exec()
-    .then(user => {
+    .then((user) => {
       if (user === null) {
         res = null;
       }
-      if (!user === null) {
+      else {
         res.json(user);
       }
     })
@@ -45,8 +44,23 @@ const userLogin = (req, res) => {
   res.json(req.loggedInUser);
 }
 
+const updateUser = (req, res) => {
+  const { username } = req.params;
+  User.findOne({ username })
+    .exec()
+    .then((user) => {
+      user.equipment = req.body.equipment;
+      user
+        .save()
+        .then(savedUser => res.json(req.body))
+        .catch(err => res.status(422).json(err))
+    })
+    .catch(err => res.status(422).json(err));
+}
+
 module.exports = {
   createUser,
   getUser,
-  userLogin
+  userLogin,
+  updateUser
 };
