@@ -52,7 +52,7 @@ const updateUser = (req, res) => {
       user.equipment = req.body.equipment;
       user
         .save()
-        .then(savedUser => res.json(req.body))
+        .then(savedUser => res.json(savedUser))
         .catch(err => res.status(422).json(err))
     })
     .catch(err => res.status(422).json(err));
