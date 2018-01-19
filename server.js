@@ -16,7 +16,7 @@ const corsOptions = {
 };
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/brewhouse', { useMongoClient: true });
+mongoose.connect('mongodb://justinborek:brewhousedbpass@ds135757.mlab.com:35757/brewhouse', { useMongoClient: true });
 
 server.use(bodyParser.json());
 server.use(CORS());

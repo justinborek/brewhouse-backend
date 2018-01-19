@@ -12,6 +12,18 @@ const RecipeSchema = new mongoose.Schema({
   },
   color: {
     type: Number
+  },
+  text: {
+    type: String,
+  },
+  IBU: {
+    type: Number
+  },
+  OG: {
+    type: Number
+  },
+  ABV: {
+    type: Number
   }
 });
 

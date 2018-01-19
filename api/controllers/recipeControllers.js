@@ -3,11 +3,15 @@ const mongoose = require('mongoose');
 const Recipe = require('../models/RecipeModel');
 
 const createRecipe = (req, res) => {
-  const { title, timers, color } = req.body;
+  const { title, timers, color, text, IBU, OG, ABV } = req.body;
   const newRecipe = new Recipe({ 
     title,
     timers,
-    color
+    color,
+    text,
+    IBU,
+    OG, 
+    ABV
   });
   newRecipe
   .save()
